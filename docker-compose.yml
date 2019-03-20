@@ -2,15 +2,14 @@ version: '3'
 services:
   mongo:
     image: mongo
-    container_name: jguwekamongo
     restart: always
   jguweka:
     image: aymmenn/jguweka:OAS3
     restart: always
     links:
-      - "mongo:mongodb"
+      - "mongo"
     ports:
-      - "8081-8099:8080"
+      - "8080-8085:8080"
     depends_on:
       - mongo
     labels:
